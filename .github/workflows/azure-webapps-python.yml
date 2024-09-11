@@ -21,7 +21,7 @@ name: Build and deploy Python app to Azure Web App
 
 env:
   AZURE_WEBAPP_NAME: yufollow  # set this to the name of your Azure Web App
-  PYTHON_VERSION: '3.10.13'              # set this to the Python version to use
+  PYTHON_VERSION: '3.10.14'              # set this to the Python version to use
 
 on:
   push:
@@ -52,6 +52,10 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Verify installed dependencies
+        run: |
+          pip list
+
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
       - name: Upload artifact for deployment jobs
@@ -77,6 +81,9 @@ jobs:
         with:
           name: python-app
           path: .
+
+      - name: Activate virtual environment
+        run: source venv/bin/activate
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
