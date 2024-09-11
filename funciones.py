@@ -7,6 +7,10 @@ from dotenv import load_dotenv
 from geopy.geocoders import Nominatim
 from geopy.extra.rate_limiter import RateLimiter
 from sqlalchemy import create_engine
+
+
+
+
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import text
 from sqlalchemy.orm import Session
@@ -1953,14 +1957,6 @@ def g_sectores_agrupado_gastos(df, columna_niveles, columna_valores, titulo, anc
     return fig
 
 
-
-
-
-
-
-
-
-
 # -----------------------------------------------------------------------------------------------------------------------------------------------------
 
 # App Acordeón : módulo de OCR
@@ -1983,13 +1979,13 @@ import pandas as pd
 from sqlalchemy import create_engine, text
 
 def bd_llamada_ocr(query, params_tuple):
-    server_ocr = 'yurestazure.database.windows.net'
-    database_ocr = 'yuBDazure'
-    username_ocr = 'CloudSA19f38018'
-    password_ocr = '65gh_34ddf'  # Debes proporcionar el password
+    MYSQL_HOST = os.getenv("MYSQL_HOST")
+    MYSQL_DB = os.getenv("MYSQL_USER")
+    MYSQL_USER = os.getenv("MYSQL_PASSWORD")
+    MYSQL_PASSWORD = os.getenv("MYSQL_DB")
     # Cambiar la cadena de conexión para usar pymssql
     # connection_string_ocr = f"mssql+pymssql://{username_ocr}:{password_ocr}@{server_ocr}/{database_ocr}?connect_timeout={int(conect)}"
-    connection_string_ocr = f"mssql+pyodbc://{username_ocr}:{password_ocr}@{server_ocr}/{database_ocr}?driver=ODBC+Driver+17+for+SQL+Server"
+    connection_string_ocr = f"mssql+pyodbc://{MYSQL_USER}:{MYSQL_PASSWORD}@{MYSQL_HOST}/{MYSQL_DB}?driver=ODBC+Driver+17+for+SQL+Server"
 
     engine_ocr = create_engine(connection_string_ocr)
 
