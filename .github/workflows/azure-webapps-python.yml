@@ -3,6 +3,10 @@ name: Build and deploy Python app to Azure Web App
 env:
   AZURE_WEBAPP_NAME: yufollow  # set this to the name of your Azure Web App
   PYTHON_VERSION: '3.10'       # set this to the Python version to use
+  MYSQL_HOST: ${{ secrets.MYSQL_HOST }}
+  MYSQL_USER: ${{ secrets.MYSQL_USER }}
+  MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}
+  MYSQL_DB: ${{ secrets.MYSQL_DB }}
 
 on:
   push:
