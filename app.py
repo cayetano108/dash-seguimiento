@@ -1,3 +1,19 @@
+import subprocess
+import sys
+
+def install_requirements():
+    try:
+        # Comando para instalar las librerías de requirements.txt
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
+    except subprocess.CalledProcessError as e:
+        print(f"Error al instalar dependencias: {e}")
+        sys.exit(1)
+
+# Llamada a la función para instalar las dependencias
+install_requirements()
+
+
+
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
