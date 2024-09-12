@@ -81,12 +81,6 @@ def lista_clientes():
     lista_formatada = [f"{row['nombre_comercial']} - {row['id']}" for _, row in df.iterrows()]
     return df, lista_formatada
 
-
-
-
-
-
-
 def lista_paises():
     query_paises = "SELECT p.id, p.name AS nombre_pais FROM paises p"
     df_paises = bd_llamada(query_paises, params_tuple=())
