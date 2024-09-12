@@ -45,7 +45,7 @@ def bd_llamada(query, params_tuple):
     params_tuple = tuple(int(param) if isinstance(param, np.integer) else param for param in params_tuple)
 
     # Crear la conexión a la base de datos MySQL usando mysql-connector-python a través de SQLAlchemy
-    engine = create_engine(f"mysql+mysqlconnector://{os.getenv('MYSQL_USER')}:{os.getenv('MYSQL_PASSWORD')}@{os.getenv('MYSQL_HOST')}:{os.getenv('MYSQL_PORT')}/{os.getenv('MYSQL_DB')}")
+    engine = create_engine(f"mysql+mysqlconnector://{os.getenv('MYSQL_USER')}:{os.getenv('MYSQL_PASSWORD')}@{os.getenv('MYSQL_HOST')}:{os.getenv('MYSQL_PORT', '3306')}/{os.getenv('MYSQL_DB')}")
 
     # Ejecutar la consulta SQL y leer los resultados en un DataFrame
     df = pd.read_sql_query(query, engine, params=params_tuple)
