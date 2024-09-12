@@ -1979,8 +1979,13 @@ import pandas as pd
 from sqlalchemy import create_engine, text
 import pymssql
 
-def print_host():
-    print("\n\n\nHost OCR: ", os.getenv("OCR_HOST"), "\n\n\n", 'HOST SQL SERVER: ', os.getenv("MYSQL_HOST"))
+
+# def print_keys():
+#     print("\n\n\nHost OCR: ", os.getenv("OCR_HOST"), "\n\n\n", 'HOST SQL SERVER: ', os.getenv("MYSQL_HOST"))
+#     print("\n\n\nUser OCR: ", os.getenv("OCR_USER"), "\n\n\n", 'USER SQL SERVER: ', os.getenv("MYSQL_USER"))
+#     print("\n\n\nPassword OCR: ", os.getenv("OCR_PASSWORD"), "\n\n\n", 'PASSWORD SQL SERVER: ', os.getenv("MYSQL_PASSWORD"))
+#     print("\n\n\nDB OCR: ", os.getenv("OCR_DB"), "\n\n\n", 'DB SQL SERVER: ', os.getenv("MYSQL_DB"))
+#     print("\n\n\nPORT SQL SERVER: ", os.getenv("MYSQL_PORT"))
     
 
 def bd_llamada_ocr(query, params_tuple):

@@ -28,7 +28,7 @@ import matplotlib.pyplot as plt
 import time
 import datetime
 
-print_host()
+# print_keys()
 
 # Obtener los datos de clientes y sus módulos
 df_clientes, lista_clientes = lista_clientes()
