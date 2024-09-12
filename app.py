@@ -27,6 +27,9 @@ from jinja2 import Template
 import matplotlib.pyplot as plt
 import time
 import datetime
+
+# print_keys()
+
 # Obtener los datos de clientes y sus módulos
 df_clientes, lista_clientes = lista_clientes()
 
@@ -1865,4 +1868,4 @@ app = App(app_ui, server)
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8000)
+    app.run()

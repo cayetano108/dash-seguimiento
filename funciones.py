@@ -45,7 +45,7 @@ def bd_llamada(query, params_tuple):
     params_tuple = tuple(int(param) if isinstance(param, np.integer) else param for param in params_tuple)
 
     # Crear la conexión a la base de datos MySQL usando mysql-connector-python a través de SQLAlchemy
-    engine = create_engine(f"mysql+mysqlconnector://{os.getenv('DATABASE_USER')}:{os.getenv('DATABASE_PASSWORD')}@{os.getenv('DATABASE_HOST')}/{os.getenv('DATABASE_NAME')}")
+    engine = create_engine(f"mysql+mysqlconnector://{os.getenv('MYSQL_USER')}:{os.getenv('MYSQL_PASSWORD')}@{os.getenv('MYSQL_HOST')}:{os.getenv('MYSQL_PORT')}/{os.getenv('MYSQL_DB')}")
 
     # Ejecutar la consulta SQL y leer los resultados en un DataFrame
     df = pd.read_sql_query(query, engine, params=params_tuple)
@@ -1977,15 +1977,25 @@ def g_sectores_agrupado_gastos(df, columna_niveles, columna_valores, titulo, anc
 
 import pandas as pd
 from sqlalchemy import create_engine, text
+import pymssql
+
+
+# def print_keys():
+#     print("\n\n\nHost OCR: ", os.getenv("OCR_HOST"), "\n\n\n", 'HOST SQL SERVER: ', os.getenv("MYSQL_HOST"))
+#     print("\n\n\nUser OCR: ", os.getenv("OCR_USER"), "\n\n\n", 'USER SQL SERVER: ', os.getenv("MYSQL_USER"))
+#     print("\n\n\nPassword OCR: ", os.getenv("OCR_PASSWORD"), "\n\n\n", 'PASSWORD SQL SERVER: ', os.getenv("MYSQL_PASSWORD"))
+#     print("\n\n\nDB OCR: ", os.getenv("OCR_DB"), "\n\n\n", 'DB SQL SERVER: ', os.getenv("MYSQL_DB"))
+#     print("\n\n\nPORT SQL SERVER: ", os.getenv("MYSQL_PORT"))
+    
 
 def bd_llamada_ocr(query, params_tuple):
-    MYSQL_HOST = os.getenv("MYSQL_HOST")
-    MYSQL_DB = os.getenv("MYSQL_USER")
-    MYSQL_USER = os.getenv("MYSQL_PASSWORD")
-    MYSQL_PASSWORD = os.getenv("MYSQL_DB")
+    OCR_HOST = os.getenv("OCR_HOST")
+    OCR_USER = os.getenv("OCR_USER")
+    OCR_PASSWORD = os.getenv("OCR_PASSWORD")
+    OCR_DB = os.getenv("OCR_DB")
     # Cambiar la cadena de conexión para usar pymssql
-    # connection_string_ocr = f"mssql+pymssql://{username_ocr}:{password_ocr}@{server_ocr}/{database_ocr}?connect_timeout={int(conect)}"
-    connection_string_ocr = f"mssql+pyodbc://{MYSQL_USER}:{MYSQL_PASSWORD}@{MYSQL_HOST}/{MYSQL_DB}?driver=ODBC+Driver+17+for+SQL+Server"
+    # connection_string_ocr = f"mssql+pymssql://{MYSQL_USER}:{MYSQL_PASSWORD}@{MYSQL_HOST}:{MYSQL_PORT}/{MYSQL_DB}"
+    connection_string_ocr = f"mssql+pyodbc://{OCR_USER}:{OCR_PASSWORD}@{OCR_HOST}/{OCR_DB}?driver=ODBC+Driver+17+for+SQL+Server"
 
     engine_ocr = create_engine(connection_string_ocr)
 
