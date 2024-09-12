@@ -7,6 +7,12 @@ env:
   MYSQL_USER: ${{ secrets.MYSQL_USER }}
   MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}
   MYSQL_DB: ${{ secrets.MYSQL_DB }}
+  MYSQL_PORT: ${{ secrets.MYSQL_PORT }}
+  OCR_HOST: ${{ secrets.OCR_HOST }}
+  OCR_PASSWORD: ${{ secrets.OCR_PASSWORD }}
+  OCR_USER: ${{ secrets.OCR_USER }}
+  OCR_DB: ${{ secrets.OCR_DB }}
+  
 
 on:
   push:
