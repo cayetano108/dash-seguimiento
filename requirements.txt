@@ -6,7 +6,7 @@ geopy==2.4.1
 ipywidgets==7.6.5
 matplotlib==3.8.0
 numpy>=1.21,<2
-pandas
+pandas==2.1.0   # Especificando una versión estable
 Pillow==10.4.0
 plotly==5.9.0
 pymssql==2.3.1
@@ -14,12 +14,14 @@ pyodbc==5.0.1
 python-dotenv==1.0.1
 Requests==2.32.3
 scikit_learn==1.2.2
-shiny==0.10.2
-shinywidgets==0.3.3
 SQLAlchemy==2.0.25
 utils==1.0.2
 mysql-connector-python==9.0.0
 gunicorn
+shiny==0.10.2
+shinywidgets==0.3.3
+
+
 
 
 
