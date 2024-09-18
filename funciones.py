@@ -17,6 +17,7 @@ from sqlalchemy.orm import Session
 import time
 
 
+
 # def bd_llamada(query,params_tuple):
 #     load_dotenv()
 #     # Create SQLAlchemy engine using pymysql
@@ -1958,8 +1959,8 @@ def g_sectores_agrupado_gastos(df, columna_niveles, columna_valores, titulo, anc
 # def bd_llamada_ocr(query, params_tuple):
 #     server_ocr = 'yurestazure.database.windows.net'
 #     database_ocr = 'yuBDazure'
-#     username_ocr = 'CloudSA19f38018'
-#     password_ocr = '65gh_34ddf'  # Debes proporcionar el password
+#     username_ocr = 
+#     password_ocr =  # Debes proporcionar el password
 
 #     connection_string_ocr = f'mssql+pyodbc://{username_ocr}:{password_ocr}@{server_ocr}/{database_ocr}?driver=ODBC+Driver+17+for+SQL+Server'
 #     engine_ocr = create_engine(connection_string_ocr)
