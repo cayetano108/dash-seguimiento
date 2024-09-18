@@ -3,6 +3,17 @@ import sys
 
 def install_requirements():
     try:
+        # Comprobar si pip está instalado
+        subprocess.check_call([sys.executable, "-m", "pip", "--version"])
+    except subprocess.CalledProcessError:
+        try:
+            # Instalar pip si no está instalado
+            subprocess.check_call([sys.executable, "-m", "ensurepip", "--default-pip"])
+        except subprocess.CalledProcessError as e:
+            print(f"Error al instalar pip: {e}")
+            sys.exit(1)
+
+    try:
         # Comando para instalar las librerías de requirements.txt
         subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
     except subprocess.CalledProcessError as e:
